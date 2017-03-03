@@ -9,7 +9,8 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 	&& php -r "unlink('composer-setup.php');"
   
 RUN apt-get update \
-	&& apt-get install nodejs npm -y \
+	&& apt-get install nodejs -y \
+	&& apt-get install npm -y \
 	&& npm install -g grunt-cli \
 	&& npm install -g bower
 
