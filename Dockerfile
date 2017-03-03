@@ -10,8 +10,8 @@ RUN apt-get update \
 	&& php -r "unlink('composer-setup.php');"
   
 RUN apt-get update \
-  && apt-get install nodejs npm
-  && npm install -g grunt-cli
+  && apt-get install nodejs npm \
+  && npm install -g grunt-cli \
   && npm install -g bower
 
 CMD ["php", "composer", "node", "npm", "bower", "grunt"]
