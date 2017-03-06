@@ -14,6 +14,7 @@ RUN apt-get update \
 	&& apt-get install nodejs-legacy -y \
 	&& npm install -g grunt-cli \
 	&& npm install -g bower \
-	&& apt-get install git -y
+	&& apt-get install git -y \
+	&& apt-get install unzip
 
 CMD ["php", "composer", "node", "npm", "bower", "grunt", "git"]
