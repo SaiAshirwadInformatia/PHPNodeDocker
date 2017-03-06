@@ -15,6 +15,7 @@ RUN apt-get update \
 	&& npm install -g grunt-cli \
 	&& npm install -g bower \
 	&& apt-get install git -y \
+	&& apt-get install zip -y \
 	&& apt-get install unzip -y
 
-CMD ["php", "composer", "node", "npm", "bower", "grunt", "git"]
+CMD ["php", "composer", "node", "npm", "bower", "grunt"]
