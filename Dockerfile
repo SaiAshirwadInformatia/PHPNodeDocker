@@ -11,6 +11,7 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 RUN apt-get update \
 	&& apt-get install nodejs -y \
 	&& apt-get install npm -y \
+	&& apt-get install nodejs-legacy -y \
 	&& npm install -g grunt-cli \
 	&& npm install -g bower
 
