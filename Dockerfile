@@ -6,10 +6,9 @@ MAINTAINER Rohan Sakhale <rs@saiashirwad.com>
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \	
 	&& php composer-setup.php --install-dir=/usr/bin --filename=composer \
 	&& php -r "unlink('composer-setup.php');"
+RUN wget -qO- https://deb.nodesource.com/setup_4.x | sudo bash -
 
 RUN apt-get update \
-	&& apt-get install wget bash -y \
-	&& wget -qO- https://deb.nodesource.com/setup_4.x | sudo bash - \
 	&& apt-get install nodejs -y \
 	&& apt-get install npm -y \
 	&& apt-get install nodejs-legacy -y \
