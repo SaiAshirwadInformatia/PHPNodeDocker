@@ -3,7 +3,7 @@ FROM node:6.10.0
 
 MAINTAINER Rohan Sakhale <rs@saiashirwad.com>
 
-RUN apt-get update \
+RUN apt-get update && apt-get install -y apt-transport-https \
 	&& apt-get install php -y \
 	&& php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \	
 	&& php composer-setup.php --install-dir=/usr/bin --filename=composer \
