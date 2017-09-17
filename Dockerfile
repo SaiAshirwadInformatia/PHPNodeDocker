@@ -4,7 +4,7 @@ FROM node:latest
 MAINTAINER Rohan Sakhale <rs@saiashirwad.com>
 
 RUN apt-get update && apt-get install -y apt-transport-https \
-	&& apt-get install -y language-pack-en-base \
+	&& apt-get install -y locales locales-all \
 	&& export LC_ALL=en_US.UTF-8 \
 	&& export LANG=en_US.UTF-8 \
 	&& apt-get install -y software-properties-common \
