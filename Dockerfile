@@ -5,8 +5,9 @@ MAINTAINER Rohan Sakhale <rs@saiashirwad.com>
 
 RUN apt-get update && apt-get install -y apt-transport-https \
 	&& apt-get install -y locales locales-all \
-	&& export LC_ALL=en_US.UTF-8 \
-	&& export LANG=en_US.UTF-8 \
+	&& ENV LC_ALL en_US.UTF-8 \
+	&& ENV LANG en_US.UTF-8 \
+	&& ENV LANGUAGE en_US.UTF-8 \
 	&& apt-get install -y software-properties-common \
 	&& apt-add-repository ppa:ondrej/php \
 	&& apt-get update \
