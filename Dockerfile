@@ -59,13 +59,18 @@ RUN apt-get update && apt-get install -y python-software-properties \
 	&& php composer-setup.php --install-dir=/usr/bin --filename=composer \
 	&& php -r "unlink('composer-setup.php');"
 
-RUN apt-get update && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
+RUN apt-get update \
+    && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
 	&& apt-get install -y nodejs \
-	&& apt-get install -y npm \
-	&& npm i -g n && n latest && npm i -g npm \
+	&& npm i -g npm \
+	&& npm i -g n \
 	&& npm i -g grunt-cli \
-	&& npm i -g yarn \
 	&& npm i -g gulp-cli \
 	&& npm i -g bower
+
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+	&& echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+	&& apt-get update \
+	&& apt-get install yarn
 
 CMD ["php", "composer", "node", "npm", "bower", "grunt", "yarn", "gulp"]
